@@ -16,9 +16,9 @@ app.use('/', userRouter);
 
 app.use((error, _req, res, _next) => {
   if (error.name && error.status) {
-    console.log(error);
     return res.status(error.status).send({ message: error.message });
   }
+  console.log('errorr app', error);
   return res.status(500).send({ message: 'generic error' });
 });
 module.exports = app;
