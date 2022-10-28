@@ -43,30 +43,21 @@ function errorMap(er) {
   }
 }
 
-// async function userExist(user) {
-//   const test = await userSevice.getAll();
-//   console.log(test);
-//   return true;
-// }
-
 async function validateReq(user) {
   const test = parameterIsRequired.validate(user);
   if (test.error) {
     errorMap(test.error);
   }
-    return true;
+  return true;
 }
-// async function validateReq(user) {
-//   const test = parameterIsRequired.validate(user);
-//   if (test.error) {
-//     errorMap(test.error);
-//   }
-//   if (await userExist(user)) {
-//     return true;
-//   }
-// }
 
 module.exports = {
 validateReq,
 createError,
 };
+
+// async function userExist(user) {
+//   const test = await userSevice.getAll();
+//   console.log(test);
+//   return true;
+// }

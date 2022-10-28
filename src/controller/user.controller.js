@@ -13,7 +13,13 @@ const newUser = async (req, res) => {
   return res.status(201).json({ token: myToken });
 };
 
+const getAllUser = async (req, res) => {
+  const result = await userSevice.getAll();
+return res.status(200).json(result);
+};
+
 module.exports = {
   login, 
   newUser,
+  getAllUser,
 };
