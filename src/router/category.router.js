@@ -10,4 +10,6 @@ router.use(authMiddleWare.tokenCheck);
 
 router.post('/', categoryController.newCategory);
 
+router.get('/', categoryController.getAllCategories);
+
 module.exports = router;
