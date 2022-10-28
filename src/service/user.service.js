@@ -40,8 +40,6 @@ const getByID = async (id) => {
   return result;
 };
 
-//   const { password, ...userNotPassWord } = data;
-
 module.exports = {
   checkLogin,
   createUser,
