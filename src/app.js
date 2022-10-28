@@ -6,7 +6,8 @@ const { errorMiddleWare, userMiddleWare } = require('./middlewares');
 
 const { userController } = require('./controller');
 
-const userRouter = require('./router/user.router');
+// const userRouter = require('./router/user.router');
+const { categoryRouter, userRouter } = require('./router');
 
 const app = express();
 
@@ -15,6 +16,8 @@ app.use(express.json());
 app.post('/login', userMiddleWare.bodyCheck, userController.login);
 
 app.use('/user', userRouter);
+
+app.use('/categories', categoryRouter);
 
 // ...
 
