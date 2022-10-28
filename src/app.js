@@ -2,7 +2,9 @@ const express = require('express');
 require('express-async-errors');
 // ...
 
-const { errorMiddleWare } = require('./middlewares');
+const { errorMiddleWare, userMiddleWare } = require('./middlewares');
+
+const { userController } = require('./controller');
 
 const userRouter = require('./router/user.router');
 
@@ -10,7 +12,9 @@ const app = express();
 
 app.use(express.json());
 
-app.use('/', userRouter);
+app.post('/login', userMiddleWare.bodyCheck, userController.login);
+
+app.use('/user', userRouter);
 
 // ...
 

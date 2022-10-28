@@ -2,14 +2,16 @@ const express = require('express');
 
 const router = express.Router();
 
-const { userMiddleWare, authMiddleWare } = require('../middlewares');
+const { authMiddleWare } = require('../middlewares');
 
 const { userController } = require('../controller');
 
-router.post('/login', userMiddleWare.bodyCheck, userController.login);
+router.post('/', userController.newUser);
 
-router.post('/user', userController.newUser);
+router.use(authMiddleWare.tokenCheck);
 
-router.get('/user', authMiddleWare.tokenCheck, userController.getAllUser);
+router.get('/', userController.getAllUser);
+
+router.get('/:id', userController.getUserByID);
 
 module.exports = router;

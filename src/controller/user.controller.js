@@ -15,11 +15,17 @@ const newUser = async (req, res) => {
 
 const getAllUser = async (req, res) => {
   const result = await userSevice.getAll();
-return res.status(200).json(result);
+  return res.status(200).json(result);
+};
+
+const getUserByID = async (req, res) => {
+  const result = await userSevice.getByID(+req.params.id);
+  return res.status(200).json(result);
 };
 
 module.exports = {
   login, 
   newUser,
   getAllUser,
+  getUserByID,
 };
