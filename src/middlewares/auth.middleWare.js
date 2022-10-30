@@ -12,7 +12,6 @@ const tokenCheck = (req, _res, next) => {
   } catch (_error) {
     createError('Expired or invalid token', 401);
   }
-  console.log('aqui');
   next();
 };
 

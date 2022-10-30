@@ -6,6 +6,13 @@ const createToken = (data) => {
   return token;
 };
 
+const readingToken = (token) => {
+  const secret = process.env.JWT_SECRET;
+  const userData = jwt.verify(token, secret);
+  return userData.userNotPassWord;
+};
+
 module.exports = {
   createToken,
+  readingToken,
 };
